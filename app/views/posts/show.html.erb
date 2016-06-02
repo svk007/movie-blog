@@ -5,3 +5,19 @@
   <tr><td>Review</td><td><%= @post.review %></td></tr>
 </tr>
 </table>
+<h2>Comments</h2>
+<% @post.comments.each do |comment| %>
+  <p>
+    <b><%= comment.username %></b>
+    <%= comment.name %>
+    <%= link_to 'Delete', [comment.post, comment],
+               :confirm => 'Are you sure?',
+               :method => :delete %>
+  </p>
+<% end %>
+<h3>Add a comment:</h3>
+<%= form_for([@post, @post.comments.build]) do |f| %>
+    <%= f.label :comment %><br />
+    <%= f.text_area :name %>
+    <%= f.submit %>
+<% end %>
