@@ -1,0 +1,6 @@
+<%= form_for(:post, url: {action: 'create'}) do |f| %>
+  Name: <%= f.text_field :name %><br />
+  Year : <%= f.text_field :year %><br />
+  Review : <%= f.text_area :review %><br />
+  <%= f.submit %>
+<% end %>
