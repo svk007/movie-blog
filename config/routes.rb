@@ -3,5 +3,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
   resources :posts do
     resources :comments
+    member do
+      put "like", to: "posts#upvote"
+    end
   end
 end
