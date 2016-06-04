@@ -10,6 +10,7 @@
     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
     <span class="badge"><%=@post.get_upvotes.size %></span>
   </button>
+  <%= link_to "View Favourites", users_favourites_path %>
 <% end %>
 <h2>Comments</h2>
 <% @post.comments.each do |comment| %>
