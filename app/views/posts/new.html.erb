@@ -1,7 +1,9 @@
 <%= form_for(:post, url: {action: 'create'}, html: { multipart: true }) do |f| %>
   Name: <%= f.text_field :name %><br />
   Year : <%= f.text_field :year %><br />
-  Review : <%= f.text_area :review %><br />
   Image : <%= f.file_field :image %>
+  <% if current_user.admin? %>
+    Review : <%= f.text_area :review %><br />
+  <% end %>
   <%= f.submit %>
 <% end %>

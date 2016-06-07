@@ -64,6 +64,8 @@ GEM
     execjs (2.7.0)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     hashie (3.4.2)
@@ -176,6 +178,7 @@ PLATFORMS
 DEPENDENCIES
   acts_as_votable
   devise
+  friendly_id
   jquery-rails
   mysql2 (~> 0.3.18)
   omniauth-facebook

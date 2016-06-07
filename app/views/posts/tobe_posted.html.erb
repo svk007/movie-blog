@@ -1,0 +1,6 @@
+<% @posts.each do |post| %>
+<%= post.name %>
+<%= link_to "Show", post_path(post) %>
+<td><%= link_to "Edit", edit_post_path(post) %>
+<br/>
+<% end %>

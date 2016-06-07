@@ -1,3 +1,4 @@
 <h1>Welcome#index</h1>
 <p>Find me in app/views/welcome/index.html.erb</p>
-<%= link_to "Show Posts", posts_path %>
+<%= link_to "Show Posts", posts_path %> <br/>
+<%= link_to "Show Unmanaged Posts", tobe_posted_path  if current_user.admin? %>

@@ -1,3 +1,13 @@
 <h1>Posts#edit</h1>
 <p>Find me in app/views/posts/edit.html.erb</p>
+
+<%= form_for(@post, url: {action: 'update', id: @post.id}, html: { multipart: true }) do |f| %>
+  Name: <%= f.text_field :name %><br />
+  Year : <%= f.text_field :year %><br />
+  Image : <%= f.file_field :image %>
+  <% if current_user.admin? %>
+    Review : <%= f.text_area :review %><br />
+  <% end %>
+  <%= f.submit %>
+<% end %>
   
