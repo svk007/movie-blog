@@ -10,3 +10,12 @@ gem 'paperclip'
 gem 'acts_as_votable'
 gem 'twitter-bootstrap-rails'
 gem 'friendly_id'
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
+
+group :assets do
+  gem 'uglifier'
+end
