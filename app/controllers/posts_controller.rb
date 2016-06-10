@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :check_admin, only: [:edit]
+  before_action :check_admin, only: [:edit, :destroy]
   def index
     @posts = Post.all
   end
@@ -45,6 +45,13 @@ class PostsController < ApplicationController
 
   def tobe_posted
     @posts = Post.where(review: [nil, ""])
+  end
+
+  def destroy
+    @post = Post.friendly.find(params[:id])
+    @post.destroy
+    flash[:notice] = "Post #{@post.name} has been deleted"
+    redirect_to posts_path
   end
 
   private

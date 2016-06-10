@@ -6,6 +6,7 @@
 </tr>
 </table>
 <%= link_to "Edit", edit_post_path(@post) %>
+<%= link_to 'Delete', post_path(@post), confirm: 'Are you sure?', method: :delete %>
 <%= link_to like_post_path(@post), method: :put do %>
 <button type="button" class="btn btn-info">
   <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
@@ -15,16 +16,32 @@
 <% end %>
 <h2>Comments</h2>
 <% @post.comments.each do |comment| %>
-<p>
-  <b><%= comment.username %></b>
-  <%= comment.name %>
-  <% if current_user.email == comment.username || current_user.admin? %>
-  <%= link_to 'Delete', [comment.post, comment],
-  :confirm => 'Are you sure?',
-  :method => :delete %>
+    <b><%= comment.username %></b>
+    <%= comment.name %>
+    <% if current_user.email == comment.username || current_user.admin? %>
+      <%= link_to 'Delete', [comment.post, comment],
+      confirm: 'Are you sure?',
+      method: :delete %>
+    <% end %>
+  <% comment.replies.each do |reply| %>
+    <p style = "text-indent: 3em">
+      <b><%= reply.author %> </b>
+      <%= reply.content %>
+        <% if current_user.email == reply.author || current_user.admin? %>
+        <%= link_to 'Delete', reply_path(reply),
+        confirm: 'Are you sure?',
+        method: :delete %>
+      <% end %>
+    </p>
   <% end %>
-</p>
+  <%= form_for :reply, url: replies_path do |f| %>
+    <%= f.hidden_field :comment_id, value: comment.id %>
+    <%= f.text_field :content %>
+  <%= f.submit "Reply" %>
+  <% end %>
+  <hr/>
 <% end %>
+
 <h3>Add a comment:</h3>
 <%= form_for([@post, @post.comments.build]) do |f| %>
 <%= f.label :comment %><br />

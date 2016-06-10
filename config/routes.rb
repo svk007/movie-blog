@@ -9,4 +9,5 @@ Rails.application.routes.draw do
     end
   end
   get 'tobe_posted', to: 'posts#tobe_posted'
+  resources :replies
 end
