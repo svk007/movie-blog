@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :check_admin, only: [:edit, :destroy]
   def index
-    @posts = Post.all
+    @posts = Post.all.paginate(page: params[:page], per_page: 50)
   end
 
   def new
@@ -44,7 +44,7 @@ class PostsController < ApplicationController
   end
 
   def tobe_posted
-    @posts = Post.where(review: [nil, ""])
+    @posts = Post.where(review: [nil, ""]).paginate(page: params[:page], per_page: 50)
   end
 
   def destroy

@@ -179,6 +179,7 @@ GEM
       execjs (>= 0.3.0, < 3)
     warden (1.2.3)
       rack (>= 1.0)
+    will_paginate (3.0.7)
 
 PLATFORMS
   ruby
@@ -197,6 +198,7 @@ DEPENDENCIES
   turbolinks
   twitter-bootstrap-rails
   uglifier
+  will_paginate
 
 BUNDLED WITH
    1.10.3

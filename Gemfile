@@ -10,6 +10,7 @@ gem 'paperclip'
 gem 'acts_as_votable'
 gem 'twitter-bootstrap-rails'
 gem 'friendly_id'
+gem 'will_paginate'
 
 group :production do
   gem 'pg'
