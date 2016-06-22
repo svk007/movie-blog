@@ -1,0 +1,7 @@
+<div class = "container-fluid">
+  <% unless post.review.blank? %>
+    <%= post.name %>
+    <%= post.year %>
+    <%= link_to "Show", post_path(post) %>
+  <% end %>
+</div>

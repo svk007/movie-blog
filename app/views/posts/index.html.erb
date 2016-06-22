@@ -2,19 +2,9 @@
 <p>Find me in app/views/posts/index.html.erb</p>
 
 <%= link_to "Add Post", new_post_path %>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Year</th>    
-  </tr>
-  <% @posts.each do |post| %>
-  <% unless post.review.blank? %>
-  <tr>
-    <td><%= post.name %></td>
-    <td><%= post.year %></td>
-    <td><%= link_to "Show", post_path(post) %>
-    <% end %>
-  <% end %>
-  </tr>
-</table>
+
+<div id="posts">
+  <%= render @posts %>
+</div>
+
 <%= will_paginate @posts %>
