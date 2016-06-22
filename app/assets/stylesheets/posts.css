@@ -2,3 +2,21 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+img {
+  height: 300px;
+  width: 200px;
+}
+
+#dataTable td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+#tableImage {
+  padding-left: 0px;
+}
+
+#post-name {
+  font-size: 250%;
+  font-weight: bold;
+}

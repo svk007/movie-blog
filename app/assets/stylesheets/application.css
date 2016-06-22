@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+#heading {
+  background-color: lavender;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 8px;
+}
+
+h1 {
+  font-family: "Times New Roman";
+  font-size: 350%;
+}
