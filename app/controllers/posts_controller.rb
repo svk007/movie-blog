@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :destroy]
   before_action :check_admin, only: [:edit, :destroy]
   def index
-    @posts = Post.all.paginate(page: params[:page], per_page: 50)
+    @posts = Post.all.paginate(page: params[:page], per_page: 30)
   end
 
   def new
@@ -58,7 +59,7 @@ class PostsController < ApplicationController
 
   def check_admin
     if current_user.admin? == false
-      render :status => :forbidden, :text => "Forbidden"
+      render status: :forbidden, text: "Forbidden"
     end
   end
 

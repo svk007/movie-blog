@@ -1,7 +1,44 @@
-<div class = "container-fluid">
-  <% unless post.review.blank? %>
-    <%= post.name %>
-    <%= post.year %>
-    <%= link_to "Show", post_path(post) %>
+<div class="container-fluid">
+  <% @posts.each_slice(3) do |(p1, p2, p3)| %>
+  <div class="row">
+    <div class="col-md-4">
+      <% unless p1.review.blank? %>
+        <center>
+        <%= image_tag p1.image.url %>
+        <br/>
+        <b><%= p1.name %></b><br/>
+        <%= p1.year %>
+        <%= link_to "Show", post_path(p1) %>
+        <br/>
+        </center>
+      <% end %>
+    </div>
+    <div class="col-md-4">
+      <% unless p2.review.blank?%>
+        <center>
+        <%= image_tag p2.image.url %>
+        <br/>
+        <b><%= p2.name %></b><br/>
+        <%= p2.year %>
+        <%= link_to "Show", post_path(p2) %>
+        <br/>
+        </center>
+      <% end %>
+    </div>
+    <div class="col-md-4">
+      <% if !p3.nil? %>
+      <% unless p3.review.blank? %>
+        <center>
+        <%= image_tag p3.image.url %>
+        <br/>
+        <b><%= p3.name %></b><br/>
+        <%= p3.year %>
+        <%= link_to "Show", post_path(p3) %>
+        <br/>
+        </center>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
   <% end %>
 </div>

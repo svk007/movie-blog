@@ -3,7 +3,9 @@ class UsersController < ApplicationController
     @a = current_user.votes.up
     @fav_posts = []
     @a.each do |a|
-      @fav_posts << Post.find("#{a.votable_id}")
+      if Post.exists?("#{a.votable_id}")
+        @fav_posts << Post.find("#{a.votable_id}")
+      end
     end
   end
 end
