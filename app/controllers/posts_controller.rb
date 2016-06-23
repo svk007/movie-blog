@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :destroy]
   before_action :check_admin, only: [:edit, :destroy]
   def index
-    @posts = Post.all.paginate(page: params[:page], per_page: 30)
+    @posts = Post.order(id: :ASC).paginate(page: params[:page], per_page: 30)
   end
 
   def new
