@@ -7,7 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 (1..210).each do |i|
   post = Post.find("#{i}")
-  if File.file?("#{Rails.root}/app/assets/images/#{i}.jpg")
-    post.update_attributes!(image: File.new("#{Rails.root}/app/assets/images/#{i}.jpg"))
+  if File.file?("#{Rails.root}/Images/#{i}.jpg")
+    post.update_attributes!(
+      image: File.new("#{Rails.root}/Images/#{i}.jpg"))
   end
 end

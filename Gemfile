@@ -11,6 +11,7 @@ gem 'acts_as_votable'
 gem 'twitter-bootstrap-rails'
 gem 'friendly_id'
 gem 'will_paginate'
+gem 'fog'
 
 group :production do
   gem 'pg'

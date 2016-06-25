@@ -4,7 +4,7 @@
     <div class="col-md-4">
       <% unless p1.review.blank? %>
         <center>
-        <%= image_tag p1.image.url %>
+        <%= image_tag p1.image.url.gsub("https", "http") %>
         <br/>
         <b><%= p1.name %></b><br/>
         <%= p1.year %>
@@ -17,7 +17,7 @@
       <% if !p2.nil? %>
       <% unless p2.review.blank?%>
         <center>
-        <%= image_tag p2.image.url %>
+        <%= image_tag p2.image.url.gsub("https", "http") %>
         <br/>
         <b><%= p2.name %></b><br/>
         <%= p2.year %>
@@ -31,7 +31,7 @@
       <% if !p3.nil? %>
       <% unless p3.review.blank? %>
         <center>
-        <%= image_tag p3.image.url %>
+        <%= image_tag p3.image.url.gsub("https", "http") %>
         <br/>
         <b><%= p3.name %></b><br/>
         <%= p3.year %>
