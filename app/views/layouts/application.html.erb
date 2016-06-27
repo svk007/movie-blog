@@ -12,23 +12,27 @@
 <nav class="navbar navbar-fixed-top">
   <div class="well well-lg" id="heading">
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
         <div class="row">
           <div class="col-md-2" id="logo_container"><%= image_tag("logo") %></div>
           <div class="col-md-10"></div>
         </div>
       </div>
-      <div class="col-md-4"><h1 style='color:gold;'><b> Science Fictionaly </b></h1></div>
-      <div class="col-md-4">
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <h1 style='color:gold;'><b> Science Fictionaly </b></h1>
+      </div>
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
         <br/>
         <% if user_signed_in? %>
         <span style="color:white;">Logged in as<strong>
         <%= link_to "#{current_user.email}", edit_user_registration_path, {:style=>'color:#FFFFFF;'} %>  </strong></span>
         <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
+        <%= link_to "View Favourites", users_favourites_path, {:style=>'color:#FFFFFF;'} %>
         <% else %>
         <%= link_to 'Sign up', new_user_registration_path, {:style=>'color:#FFFFFF;'} %><br/>
         <%= link_to 'Login', new_user_session_path, {:style=>'color:#FFFFFF;'} %><br/>
         <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), {:style=>'color:#FFFFFF;'} %><br/>
+
         <% end %>      
       </div>
     </div>
@@ -36,7 +40,6 @@
 </nav>
 <body>
   <div class="container-fluid">
-    <br/><br/><br/><br/><br/><br/>
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, :id => "flash_#{name}" %>
     <% end %> 

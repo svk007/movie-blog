@@ -1,11 +1,13 @@
-<center><%= error_messages_for(@post) %></center>
-
-<%= form_for(:post, url: {action: 'create'}, html: { multipart: true, :class => "form-horizontal center" }) do |f| %>
+<center>
+  <%= error_messages_for(@post) %>
+  <h2> Add Details of the New Movie </h2>
+</center><br/>
+<%= form_for(:post, url: {action: 'create'}, html: { multipart: true, :class => "form-horizontal center"}) do |f| %>
 
   <%= render(partial: 'postform', locals: {f: f}) %>
   
   <center>
     <%= f.submit "Save Post", class: "btn btn-primary" %>
   </center>
-  
+
 <% end %>

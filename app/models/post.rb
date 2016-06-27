@@ -13,4 +13,12 @@ class Post < ActiveRecord::Base
   validates_presence_of :name
   extend FriendlyId
   friendly_id :name, use: :slugged
+
+  def self.movie_name(movie_name)
+    if movie_name
+      self.where("name LIKE ?", "%#{movie_name}%")
+    else
+      self.all
+    end
+  end
 end

@@ -29,3 +29,26 @@ img {
   max-height: 100px;
   max-width: 100px;
 }
+
+#comment {
+  font-size: 20px;
+  float: left; 
+  width: auto;
+}
+
+#reply {
+  font-size: 15px;
+}
+
+.tabspace {
+  text-indent: 1em;
+}
+
+.commentbtn {
+  font-size: 18px;
+}
+
+.inlinecontentspacing {
+  display: inline-block;
+  text-indent: 1em;
+}
