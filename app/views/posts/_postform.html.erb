@@ -1,0 +1,27 @@
+<div class="form-group">
+  <%= f.label :name, "Add the name of the Movie:", class: "col-md-4 control-label" %>
+  <div class="col-md-8">
+    <%= f.text_field :name, placeholder: "Name", style: "width: 400px;"%><br />
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :year, "Year of Release", class: "col-md-4 control-label" %>
+  <div class="col-md-8">
+    <%= f.text_field :year, placeholder: "Year" %><br />
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :image, "Please add an Image file: ", class: "col-md-4 control-label" %>
+  <div class="col-md-8">
+    <%= f.file_field :image %>
+  </div>
+</div>
+
+<% if current_user.admin? %>
+<div class="form-group">
+  <%= f.label :review, "Please write a Review: ", class: "col-md-4 control-label" %>
+  <div class="col-md-8">
+    <%= f.text_area :review, size: "50x6", placeholder: "Write a Review" %><br />
+  </div>
+</div>
+<% end %>

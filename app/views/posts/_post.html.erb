@@ -1,7 +1,8 @@
 <div class="container-fluid">
-  <% @posts.each_slice(3) do |(p1, p2, p3)| %>
+  <% @posts.each_slice(6) do |(p1, p2, p3, p4, p5, p6)| %>
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-xs-6 col-sm-6 col-md-4">
+      <% if !p1.nil? %>
       <% unless p1.review.blank? %>
         <center>
         <%= image_tag p1.image.url.gsub("https", "http") %>
@@ -12,8 +13,9 @@
         <br/>
         </center>
       <% end %>
+      <% end %>      
     </div>
-    <div class="col-md-4">
+    <div class="col-xs-6 col-sm-6 col-md-4">
       <% if !p2.nil? %>
       <% unless p2.review.blank?%>
         <center>
@@ -27,7 +29,7 @@
       <% end %>
       <% end %>
     </div>
-    <div class="col-md-4">
+    <div class="col-xs-6 col-sm-6 col-md-4">
       <% if !p3.nil? %>
       <% unless p3.review.blank? %>
         <center>
@@ -36,6 +38,48 @@
         <b><%= p3.name %></b><br/>
         <%= p3.year %>
         <%= link_to "Show", post_path(p3) %>
+        <br/>
+        </center>
+      <% end %>
+      <% end %>
+    </div>
+        <div class="col-xs-6 col-sm-6 col-md-4">
+      <% if !p4.nil? %>
+      <% unless p4.review.blank? %>
+        <center>
+        <%= image_tag p4.image.url.gsub("https", "http") %>
+        <br/>
+        <b><%= p4.name %></b><br/>
+        <%= p4.year %>
+        <%= link_to "Show", post_path(p4) %>
+        <br/>
+        </center>
+      <% end %>
+      <% end %>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-4">
+      <% if !p5.nil? %>
+      <% unless p5.review.blank? %>
+        <center>
+        <%= image_tag p5.image.url.gsub("https", "http") %>
+        <br/>
+        <b><%= p5.name %></b><br/>
+        <%= p5.year %>
+        <%= link_to "Show", post_path(p5) %>
+        <br/>
+        </center>
+      <% end %>
+      <% end %>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-4">
+      <% if !p6.nil? %>
+      <% unless p6.review.blank? %>
+        <center>
+        <%= image_tag p6.image.url.gsub("https", "http") %>
+        <br/>
+        <b><%= p6.name %></b><br/>
+        <%= p6.year %>
+        <%= link_to "Show", post_path(p6) %>
         <br/>
         </center>
       <% end %>
