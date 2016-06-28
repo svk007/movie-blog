@@ -1,22 +1,25 @@
 <div class="row">
-  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-    <h2>Don't see what you are looking for?</h2>
-    Add a new movie to our database. We absolutely encourage it !
-    <span class="btn btn-success"><%= link_to "Add Post", new_post_path, {:style=>'color:#FFFFFF;'} %></span>
-  </div>
-  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-    <br/>
-    <span id="search">
-      <%= form_tag('/posts', method: :get, enforce_utf8: false) do %>
-        <%= text_field_tag :movie_name, params[:movie_name] %>
-        <%= submit_tag "Search Movie", name: nil, class: "btn btn-primary" %>
-      <% end %>
-    </span>
-  </div>
+	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+		<h2>Don't see what you are looking for?</h2>
+		Add a new movie to our database. We absolutely encourage it !
+		<span class="btn btn-success"><%= link_to "Add Post", new_post_path, {:style=>'color:#FFFFFF;'} %></span>
+	</div>
+	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+		<br/>
+		<span id="search">
+			<%= form_tag('/posts', method: :get, enforce_utf8: false) do %>
+			<%= text_field_tag :movie_name, params[:movie_name] %>
+			<%= submit_tag "Search Movie", name: nil, class: "btn btn-primary" %>
+			<% end %>
+		</span>
+	</div>
 </div>
-<br/>
+<br/><br/>
 <div id="posts">
-  <%= render 'post' %>
+	<%= render 'post' %>
 </div>
-
-<%= will_paginate @posts %>
+<center>
+	<div id="pag">
+		<%= will_paginate @posts %>
+	</div>
+</center>

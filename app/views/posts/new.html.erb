@@ -2,7 +2,7 @@
   <%= error_messages_for(@post) %>
   <h2> Add Details of the New Movie </h2>
 </center><br/>
-<%= form_for(:post, url: {action: 'create'}, html: { multipart: true, :class => "form-horizontal center"}) do |f| %>
+<%= form_for(:post, url: {action: 'create'}, html: { multipart: true, class: "form-horizontal center"}) do |f| %>
 
   <%= render(partial: 'postform', locals: {f: f}) %>
   
