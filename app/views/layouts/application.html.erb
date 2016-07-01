@@ -11,7 +11,7 @@
 	<%= csrf_meta_tags %>
 </head>
 <body>	
-	<nav class="navbar navbar-inverse navbar-static-top">
+	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -34,7 +34,7 @@
 					</li>
 					<li id="ghl">
 						<%= button_to 'Logout', destroy_user_session_path, method: :delete, class: "btn btn-danger" %>        
-					</li>						
+					</li>
 					<% else %>
 					<li>
 						<%= link_to '<span class="glyphicon glyphicon-user"></span> Sign Up'.html_safe, new_user_registration_path, class: "link_colors" %>
@@ -50,16 +50,20 @@
 			</div>
 		</div>
 	</nav>
-	<div class="container-fluid">
+	<div class="container-fluid" id="body">
 		<div class="row">
 			<div class="col-xs-10" style="background: lavender">
 				<% flash.each do |name, msg| %>
 				<%= content_tag :div, msg, :id => "flash_#{name}" %>
 				<% end %> 
 				<%= yield %>
+				<br/>
 			</div>
-			<div class="col-xs-2" style="background: lavenderblush">
-				Place <br/><br/><br/><br/><br/><br/>for <br/><br/><br/><br/><br/><br/><br/>ads<br/><br/><br/><br/><br/>
+			<div class="col-xs-2">
+				<div class="affix">
+					<br/><br/><br/><br/><br/><br/>Place<br/><br/><br/><br/>your<br/><br/><br/><br/>
+					ads<br/><br/><br/><br/>here
+				</div>
 			</div>
 		</div>
 	</div>

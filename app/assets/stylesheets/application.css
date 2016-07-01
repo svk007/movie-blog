@@ -32,6 +32,10 @@ a.link_colors {
   align-items: center;
   height: 50px;
 }
+
+#body {
+  padding-top: 60px;
+}
 #ghl {
   padding-top: 8px;
   padding-bottom: 8px;
