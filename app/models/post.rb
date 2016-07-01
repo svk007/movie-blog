@@ -16,7 +16,7 @@ class Post < ActiveRecord::Base
 
   def self.movie_name(movie_name)
     if movie_name
-      self.where("name LIKE ?", "%#{movie_name}%")
+      self.where("lower(name) LIKE ?", "%#{movie_name}%".downcase)
     else
       self.all
     end
