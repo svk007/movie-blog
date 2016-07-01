@@ -5,10 +5,10 @@
 
   <div class="form-group">
     <%= f.label :email, "Enter your Email address:", class: "control-label" %>
-    <%= f.email_field :email, autofocus: true, size: 50 %>
+    <%= f.email_field :email, autofocus: true, size: 25 %>
   </div>
   <br/><br/><br/>
-  <%= f.submit "Send me reset password instructions", class: "btn btn-primary" %>
+  <%= f.submit "Send me Reset instructions", class: "btn btn-primary" %>
 <% end %>
 <br/><br/>
 <%= render "devise/shared/links" %>

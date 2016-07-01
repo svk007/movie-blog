@@ -6,7 +6,7 @@
 
   <div class="form-group">
     <%= f.label :email, "Enter your Email address:", class: "control-label" %>    
-    <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), size: 50 %>     
+    <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), size: 25 %>     
   </div>
   <br/><br/><br/>
   <%= f.submit "Resend confirmation instructions", class: "btn btn-primary" %>

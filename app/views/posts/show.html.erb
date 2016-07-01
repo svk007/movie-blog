@@ -1,42 +1,54 @@
 <center>
-  <span id = "post-name"><%= @post.name %></span>
-  <%= link_to "Edit", edit_post_path(@post) if user_signed_in? && current_user.admin? %>
-  <%= link_to 'Delete', post_path(@post), confirm: 'Are you sure?', method: :delete  if user_signed_in? && current_user.admin? %>
-</center><br/>
-<table class="table table-bordered" id="dataTable">
-  <tr><td rowspan=3 id="tableImage"><%= image_tag @post.image.url.gsub("https", "http") %></td>
-    <td>Year</td><td><%= @post.year %></td>
-    <td rowspan=3><%= @post.review %><br/><br/></br/>
-    <%= link_to like_post_path(@post), method: :put do %>
-      <button type="button" class="btn btn-info">
-        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-        <span class="badge"><%=@post.get_upvotes.size %></span>
-      </button>
-    <br/>Mark Favourite<% end %></td></tr>
-    <tr><td>Author</td><td>To be filled</td></tr>
-    <tr><td>ISBN</td><td>To be filled</td></tr>
-  </tr>
-</table>
-<br/><br/><br/>
+	<div id="namecontainer">
+		<span id="post-name"><%= @post.name %></span><br/>
+		<%= link_to "Edit", edit_post_path(@post) if user_signed_in? && current_user.admin? %>
+		<%= link_to 'Delete', post_path(@post), confirm: 'Are you sure?', method: :delete  if user_signed_in? && current_user.admin? %>
+		<br/>
+	</div>
+</center>
+<div class="row">	
+	<div class="col-sm-6 col-xs-12" id="imagecolumn">
+		<div id="imgcontainer">
+			<%= image_tag @post.image.url.gsub("https", "http") %>
+		</div>
+	</div>
+	<div class="col-sm-6 col-xs-12" id="textcontainer">
+		<div align="center">
+			<span class="field">Year</span><%= @post.year %><br/>
+			<span class="field">Author</span> To be filled<br/>
+			<span class="field">ISBN</span> To be filled<br/>
+			<span id="review"><%= @post.review %></span><br/>
+			<%= link_to like_post_path(@post), method: :put do %>
+			<button type="button" class="btn btn-info">
+				<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+				<span class="badge"><%=@post.get_upvotes.size %></span>
+			</button>
+			<br/>Mark Favourite
+			<% end %>
+		</div>
+	</div>	
+	&nbsp;
+</div>
+<br/>
 <% if user_signed_in? %>  
 <%= form_for([@post, @post.comments.build], html: {class: "form-inline"}) do |f| %>
 <div class="form-group">
-  <%= f.label :comment, "Leave a Comment", class: "col-md-4 control-label" %>
-  <div class="col-md-8">
-    <%= f.text_area :name, size: "30*2" %>
-  </div>
+	<%= f.label :comment, "Leave a Comment", class: "col-xs-4 control-label" %>
+	<div class="col-md-8">
+		<%= f.text_area :name, size: "20*2" %>
+	</div>
 </div>
 <%= f.submit "Comment", class: "btn btn-primary" %>
 <% end %>
 <% end %>
 <br/>
-<h3>Recent Comments</h3>
+<h3><i>Recent Comments</i></h3>
 <hr/>
 <% @post.comments.reverse.each do |comment| %>
 <% if comment.persisted? %>
 <span id="comment">
-  <b><u><%= comment.username %></b></u>
-  <div class="inlinecontentspacing" style="color: green;"><%= comment.name %></div>
+	<b><u><%= comment.username %></b></u>
+	<div class="inlinecontentspacing" style="color: green;"><%= comment.name %></div>
 </span>
 <% if user_signed_in? %>
 <% if current_user.email == comment.username || current_user.admin? %>
@@ -49,19 +61,19 @@ method: :delete, class: "commentbtn" %></span>
 <% comment.replies.each do |reply| %>
 <br/>
 <div id="reply">
-  <div style="float: left; width: auto; text-indent: 3em;">
-    <b><u><%= reply.author %></b></u>
-    <div class="inlinecontentspacing" style="color: blue;"><%= reply.content %></div>
-  </div>
-  <% if user_signed_in? %>
-  <% if current_user.email == reply.author || current_user.admin? %>
-  <span class="tabspace"><%= button_to 'Delete', reply_path(reply),
-  confirm: 'Are you sure?',
-  method: :delete %></span>
-  <% end %>
-  <% else %>
-  <br/><strong style="color:red;">Sign in to leave a reply or comment</strong>
-  <% end %> 
+	<div style="float: left; width: auto; text-indent: 3em;">
+		<b><u><%= reply.author %></b></u>
+		<div class="inlinecontentspacing" style="color: blue;"><%= reply.content %></div>
+	</div>
+	<% if user_signed_in? %>
+	<% if current_user.email == reply.author || current_user.admin? %>
+	<span class="tabspace"><%= button_to 'Delete', reply_path(reply),
+	confirm: 'Are you sure?',
+	method: :delete %></span>
+	<% end %>
+	<% else %>
+	<br/><strong style="color:red;">Sign in to leave a reply or comment</strong>
+	<% end %> 
 </div>   
 <% end %>
 
@@ -70,7 +82,7 @@ method: :delete, class: "commentbtn" %></span>
 <%= form_for :reply, url: replies_path, html: {class: "form-inline"} do |f| %>
 <%= f.hidden_field :comment_id, value: comment.id %>
 <div class="form-group">
-  <%= f.text_field :content, placeholder: "Reply" %>        
+	<%= f.text_field :content, placeholder: "Reply" %>        
 </div>
 <%= f.submit "Reply", class: "btn btn-default" %>
 <% end %>

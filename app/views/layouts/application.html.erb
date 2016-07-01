@@ -53,9 +53,11 @@
 	<div class="container-fluid" id="body">
 		<div class="row">
 			<div class="col-xs-10" style="background: lavender">
-				<% flash.each do |name, msg| %>
-				<%= content_tag :div, msg, :id => "flash_#{name}" %>
-				<% end %> 
+				<center>
+					<% flash.each do |name, msg| %>
+					<%= content_tag :div, msg, :id => "flash_#{name}" %>
+					<% end %> 
+				</center>
 				<%= yield %>
 				<br/>
 			</div>

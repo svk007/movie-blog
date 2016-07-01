@@ -1,54 +1,88 @@
 /*
-  Place all the styles related to the matching controller here.
-  They will automatically be included in application.css.
+	Place all the styles related to the matching controller here.
+	They will automatically be included in application.css.
 */
-img {
-  height: 300px;
-  width: 200px;
+#imagecolumn {
+	text-align: center;
 }
 
-#dataTable td {
-    text-align: center;
-    vertical-align: middle;
+.row {
+	background-color: white;
 }
 
-#tableImage {
-  padding-left: 0px;
+#imgcontainer {
+	display: inline-block;
+	min-height: 300px;
+	width: 200px;
+	padding-top: 15px;
+	border: 1px solid;
+	box-shadow: 10px 10px 5px #888888;
+}
+
+#namecontainer {
+	background-color: white;
+	margin-left: -15px;
+	margin-right: -15px;
+}
+
+#textcontainer {
+	background: lightblue;
+	min-height: 300px;	
+	display: -webkit-flexbox;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 5px 10px 10px lightgreen;
 }
 
 #post-name {
-  font-size: 250%;
-  font-weight: bold;
+	font-size: 250%;
+	font-weight: bold;
+}
+
+.field {
+	font-style: italic;
+	font-size: 120%;
+	padding-right: 5px;
+}
+
+#review {
+	font-size: 140%;
 }
 
 #search {
-  float: right;
+	float: right;
 }
 
 #logo_container img {
-  max-height: 100px;
-  max-width: 100px;
+	max-height: 100px;
+	max-width: 100px;
 }
 
 #comment {
-  font-size: 20px;
-  float: left; 
-  width: auto;
+	font-size: 20px;
+	float: left; 
+	width: auto;
 }
 
 #reply {
-  font-size: 15px;
+	font-size: 15px;
 }
 
 .tabspace {
-  text-indent: 1em;
+	text-indent: 1em;
 }
 
 .commentbtn {
-  font-size: 18px;
+	font-size: 18px;
 }
 
 .inlinecontentspacing {
-  display: inline-block;
-  text-indent: 1em;
+	display: inline-block;
+	text-indent: 1em;
 }
