@@ -4,8 +4,12 @@
 		<div class="col-xs-12 col-sm-6 col-md-4">
 			<% if !p1.nil? %>
 			<% unless p1.review.blank? %>
-			<center>
-				<%= image_tag p1.image.url.gsub("https", "http") %>
+			<center>				
+				<% if p1.image_file_name != "Not Found" %>
+					<%= image_tag p1.image.url.gsub("https", "http") %>
+				<% else %>
+					<%= image_tag("404.png") %>
+				<% end %>
 				<br/>
 				<b><%= p1.name %></b><br/>
 				<%= p1.year %>
@@ -19,7 +23,11 @@
 			<% if !p2.nil? %>
 			<% unless p2.review.blank?%>
 			<center>
-				<%= image_tag p2.image.url.gsub("https", "http") %>
+				<% if p2.image_file_name != "Not Found" %>
+					<%= image_tag p2.image.url.gsub("https", "http") %>
+				<% else %>
+					<%= image_tag("404.png") %>
+				<% end %>
 				<br/>
 				<b><%= p2.name %></b><br/>
 				<%= p2.year %>
@@ -33,7 +41,11 @@
 			<% if !p3.nil? %>
 			<% unless p3.review.blank? %>
 			<center>
-				<%= image_tag p3.image.url.gsub("https", "http") %>
+				<% if p3.image_file_name != "Not Found" %>
+					<%= image_tag p3.image.url.gsub("https", "http") %>
+				<% else %>
+					<%= image_tag("404.png") %>
+				<% end %>
 				<br/>
 				<b><%= p3.name %></b><br/>
 				<%= p3.year %>
@@ -47,7 +59,11 @@
 			<% if !p4.nil? %>
 			<% unless p4.review.blank? %>
 			<center>
-				<%= image_tag p4.image.url.gsub("https", "http") %>
+				<% if p4.image_file_name != "Not Found" %>
+					<%= image_tag p4.image.url.gsub("https", "http") %>
+				<% else %>
+					<%= image_tag("404.png") %>
+				<% end %>
 				<br/>
 				<b><%= p4.name %></b><br/>
 				<%= p4.year %>
@@ -61,7 +77,11 @@
 			<% if !p5.nil? %>
 			<% unless p5.review.blank? %>
 			<center>
-				<%= image_tag p5.image.url.gsub("https", "http") %>
+				<% if p5.image_file_name != "Not Found" %>
+					<%= image_tag p5.image.url.gsub("https", "http") %>
+				<% else %>
+					<%= image_tag("404.png") %>
+				<% end %>
 				<br/>
 				<b><%= p5.name %></b><br/>
 				<%= p5.year %>
@@ -75,7 +95,11 @@
 			<% if !p6.nil? %>
 			<% unless p6.review.blank? %>
 			<center>
-				<%= image_tag p6.image.url.gsub("https", "http") %>
+				<% if p6.image_file_name != "Not Found" %>
+					<%= image_tag p6.image.url.gsub("https", "http") %>
+				<% else %>
+					<%= image_tag("404.png") %>
+				<% end %>
 				<br/>
 				<b><%= p6.name %></b><br/>
 				<%= p6.year %>

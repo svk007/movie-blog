@@ -1,21 +1,25 @@
 <center>
 	<div id="namecontainer">
 		<span id="post-name"><%= @post.name %></span><br/>
-		<%= link_to "Edit", edit_post_path(@post) if user_signed_in? && current_user.admin? %>
-		<%= link_to 'Delete', post_path(@post), confirm: 'Are you sure?', method: :delete  if user_signed_in? && current_user.admin? %>
+		<%= link_to "Edit", edit_post_path(@post) if user_signed_in? && current_user.admin? %>		
+		<%= button_to 'Delete', post_path(@post), data: {confirm: 'Are you sure?'}, method: :delete, class: "del_post_button"  if user_signed_in? && current_user.admin? %>
 		<br/>
 	</div>
 </center>
 <div class="row">	
 	<div class="col-sm-6 col-xs-12" id="imagecolumn">
 		<div id="imgcontainer">
-			<%= image_tag @post.image.url.gsub("https", "http") %>
+			<% if @post.image_file_name != "Not Found" %>
+				<%= image_tag @post.image.url.gsub("https", "http") %>
+			<% else %>
+				<%= image_tag("404.png") %>
+			<% end %>
 		</div>
 	</div>
 	<div class="col-sm-6 col-xs-12" id="textcontainer">
 		<div align="center">
 			<span class="field">Year</span><%= @post.year %><br/>
-			<span class="field">Author</span> To be filled<br/>
+			<span class="field"><%= @post.director %></span><br/>
 			<span class="field">ISBN</span> To be filled<br/>
 			<span id="review"><%= @post.review %></span><br/>
 			<%= link_to like_post_path(@post), method: :put do %>

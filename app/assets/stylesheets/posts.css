@@ -10,11 +10,24 @@
 	background-color: white;
 }
 
+.del_post_button {
+	border: none;
+	margin: 0;
+	padding: 0;
+	background: none;
+	overflow: hidden;
+	color: #428BCA;
+	width: auto;
+	cursor: pointer;
+	text-align: left;
+}
+
 #imgcontainer {
 	display: inline-block;
 	min-height: 300px;
 	width: 200px;
 	padding-top: 15px;
+	margin-top: 20px;
 	border: 1px solid;
 	box-shadow: 10px 10px 5px #888888;
 }
