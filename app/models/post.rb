@@ -11,6 +11,9 @@ class Post < ActiveRecord::Base
   fog_directory: "trail-1353.appspot.com"
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
   validates_presence_of :name
+  validates_uniqueness_of :name, case_sensitive: false
+  validates_presence_of :year
+  validates_presence_of :image
   extend FriendlyId
   friendly_id :name, use: :slugged
 

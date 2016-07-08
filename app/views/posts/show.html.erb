@@ -19,8 +19,7 @@
 	<div class="col-sm-6 col-xs-12" id="textcontainer">
 		<div align="center">
 			<span class="field">Year</span><%= @post.year %><br/>
-			<span class="field"><%= @post.director %></span><br/>
-			<span class="field">ISBN</span> To be filled<br/>
+			<span class="field"><%= @post.director %></span><br/><br/>
 			<span id="review"><%= @post.review %></span><br/>
 			<%= link_to like_post_path(@post), method: :put do %>
 			<button type="button" class="btn btn-info">

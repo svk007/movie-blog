@@ -26,25 +26,30 @@
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav navbar-right">
 					<% if user_signed_in? %>
-					<li>
-						<%= link_to "View Favourites", users_favourites_path, class: "link_colors" %>
-					</li>
-					<li>
-						<%= link_to "#{current_user.email}", edit_user_registration_path, class: "link_colors" %>
-					</li>
-					<li id="ghl">
-						<%= button_to 'Logout', destroy_user_session_path, method: :delete, class: "btn btn-danger" %>        
-					</li>
+						<% if current_user.admin == true %>
+							<li>
+								<%= link_to "View Unapproved Posts", tobe_posted_path, class: "link_colors" %>
+							</li>
+						<% end %>	
+						<li>
+							<%= link_to "View Favourites", users_favourites_path, class: "link_colors" %>
+						</li>
+						<li>
+							<%= link_to "#{current_user.email}", edit_user_registration_path, class: "link_colors" %>
+						</li>
+						<li id="ghl">
+							<%= button_to 'Logout', destroy_user_session_path, method: :delete, class: "btn btn-danger" %>        
+						</li>
 					<% else %>
-					<li>
-						<%= link_to '<span class="glyphicon glyphicon-user"></span> Sign Up'.html_safe, new_user_registration_path, class: "link_colors" %>
-					</li>
-					<li>
-						<%= link_to '<span class="glyphicon glyphicon-user"></span> Sign Up via Facebook'.html_safe, user_omniauth_authorize_path(:facebook), class: "link_colors" %>
-					</li>
-					<li>
-						<%= link_to '<span class="glyphicon glyphicon-log-in"></span> Login'.html_safe, new_user_session_path, class: "link_colors" %>
-					</li>
+						<li>
+							<%= link_to '<span class="glyphicon glyphicon-user"></span> Sign Up'.html_safe, new_user_registration_path, class: "link_colors" %>
+						</li>
+						<li>
+							<%= link_to '<span class="glyphicon glyphicon-user"></span> Sign Up via Facebook'.html_safe, user_omniauth_authorize_path(:facebook), class: "link_colors" %>
+						</li>
+						<li>
+							<%= link_to '<span class="glyphicon glyphicon-log-in"></span> Login'.html_safe, new_user_session_path, class: "link_colors" %>
+						</li>
 					<% end %>
 				</ul>
 			</div>
