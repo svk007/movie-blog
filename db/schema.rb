@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160610081658) do
+ActiveRecord::Schema.define(version: 20160708064937) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "name",       limit: 65535
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20160610081658) do
     t.integer  "image_file_size",    limit: 4
     t.datetime "image_updated_at"
     t.string   "slug",               limit: 255
+    t.string   "director",           limit: 255
   end
 
   add_index "posts", ["slug"], name: "index_posts_on_slug", using: :btree

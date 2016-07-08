@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-(1..210).each do |i|
+(1..9300).each do |i|
   post = Post.find("#{i}")
   if File.file?("#{Rails.root}/Images/#{i}.jpg")
     post.update_attributes!(
